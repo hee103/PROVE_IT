@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class AlienController : MonoBehaviour
 {
     private Rigidbody rigid;
-
+    private Animator animator;
     [SerializeField] private float moveSpeed = 3f;
 
     private Vector2 input;
@@ -12,6 +12,7 @@ public class AlienController : MonoBehaviour
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -29,8 +30,16 @@ public class AlienController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         if (context.performed)
+        {
             input = context.ReadValue<Vector2>();
+            animator.SetBool("isRun", true);
+        }
+
         else if (context.canceled)
+        {
             input = Vector2.zero;
+            animator.SetBool("isRun", false);
+        }
+
     }
 }
