@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InspectorController : MonoBehaviour
+public class BaseCameraController : MonoBehaviour
 {
     [Header("Look")]
     private Vector2 lookInput;
