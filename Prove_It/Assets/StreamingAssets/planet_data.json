@@ -1,0 +1,21 @@
+{
+  "data_version": "1.0.0",
+  "planets": [
+    {
+      "planet_id": "P001",
+      "planet_name": "행성A",
+      "greeting_type": "PALM_SHOW",
+      "currency_id": "CUR_LUMA",
+      "planet_code": "LMN",
+      "emblem_color": "YELLOW"
+    },
+    {
+      "planet_id": "P002",
+      "planet_name": "행성B",
+      "greeting_type": "FIST_ON_CHEST",
+      "currency_id": "CUR_KRON",
+      "planet_code": "KRT",
+      "emblem_color": "BLUE"
+    }
+  ]
+}
