@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "CCTV",
+                    "type": "Button",
+                    "id": "a1c1715f-000b-4c97-9ca0-b4564be4882a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -108,6 +117,45 @@
                     "processors": "",
                     "groups": "Inspector",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0d5a95a3-0e76-40e3-867d-2dae7eeecbb7",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CCTV",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Conversation",
+            "id": "8899f8e8-30ae-4505-b7f6-91c57319a836",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "5c725570-d856-449a-9be3-29d5cd9cf949",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "48db58a8-9fd4-465c-a316-b369be1c41eb",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
