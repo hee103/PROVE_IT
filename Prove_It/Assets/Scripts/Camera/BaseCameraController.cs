@@ -10,6 +10,7 @@ public class BaseCameraController : MonoBehaviour
     [SerializeField] private float xMin = -75;
     [SerializeField] private float xMax = 75;
     [SerializeField] private bool cursurLockState;
+    [SerializeField] private Transform character;
     private float curCamX;
     private float pitch;
 
@@ -35,5 +36,7 @@ public class BaseCameraController : MonoBehaviour
 
         cameraPivot.localEulerAngles = new Vector3(-curCamX, 0f, 0f);
         transform.eulerAngles += new Vector3(0, lookInput.x * sensitivity, 0);
+
+        character.Rotate(Vector3.up * lookInput.x * sensitivity);
     }
 }
