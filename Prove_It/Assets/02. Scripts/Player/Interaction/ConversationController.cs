@@ -22,12 +22,16 @@ public class ConversationController : MonoBehaviour
         currentAlien = targetAlien;
 
         mode.EnterConversationMode();
+        UIManager.Instance.EnterDialogueMode();
+
         runner.StartDialogue(startNode);
     }
 
     private void OnDialogueComplete()
     {
         currentAlien = null;
+
+        UIManager.Instance.ExitDialogueMode();
         mode.ExitConversationMode();
     }
 
