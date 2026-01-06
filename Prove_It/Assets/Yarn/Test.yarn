@@ -1,4 +1,37 @@
 ﻿title: Test
 ---
-This is an example of a Yarn Spinner script. Write your dialogue here!
+Alien: 신분 확인을 시작하지.
+Alien: 너는 어디서 왔지?
+
+-> "화성에서 왔다"
+    <<LearnInfo "Planet" "행성A">>
+    Alien: 그래, 화성이라…
+    <<jump Loop>>
+-> "금성에서 왔다"
+    <<LearnInfo "Planet" "행성B">>
+    Alien: 흠… 금성?
+    <<jump Loop>>
+-> "대답을 거부한다"
+    Alien: 협조하지 않는군.
+    <<jump End>>
 ===
+title: tLoop
+---
+Alien: 다른 정보도 말해줄 수 있겠나?
+
+-> "상징색은 파랑이다"
+    <<LearnInfo "Color" "파랑">>
+    Alien: 파랑… 기억해두지.
+    <<jump Loop>>
+-> "상징색은 빨강이다"
+    <<LearnInfo "Color" "빨강">>
+    Alien: 빨강… 흠.
+    <<jump Loop>>
+-> "그만한다"
+    <<jump End>>
+===
+title: tEnd
+---
+대화를 종료한다.
+===
+
