@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class AlienController : MonoBehaviour
 {
+    public event Action InteractPressed;
+
     private Rigidbody rigid;
     private Animator animator;
     [SerializeField] private float moveSpeed = 3f;
@@ -18,8 +21,7 @@ public class AlienController : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 dir = transform.forward * input.y + transform.right * input.x;
-        Vector3 vel = new Vector3(dir.x * moveSpeed, rigid.velocity.y, dir.z * moveSpeed);
-        rigid.velocity = vel;
+        rigid.velocity = new Vector3(dir.x * moveSpeed, rigid.velocity.y, dir.z * moveSpeed);
     }
 
     public void OnMove(InputAction.CallbackContext ctx)
@@ -27,4 +29,12 @@ public class AlienController : MonoBehaviour
         input = ctx.ReadValue<Vector2>();
         animator.SetBool("isRun", input.sqrMagnitude > 0.001f);
     }
+
+    public void OnInteract(InputAction.CallbackContext ctx)
+    {
+        if (!ctx.performed) return;
+        Debug.Log("Interact pressed");
+        InteractPressed?.Invoke();
+    }
+
 }

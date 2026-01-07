@@ -595,8 +595,9 @@ MonoBehaviour:
   interactMask:
     serializedVersion: 2
     m_Bits: 8
-  interactButton: {fileID: 1156500986}
   range: 3
+  ui: {fileID: 8163582919170873761}
+  alienController: {fileID: 8759577008611964410}
 --- !u!1 &980644563
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,7 +721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bec29c0a230741bdac901dba8da47ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yarnProject: {fileID: 7545569452688597077, guid: 7111b41c7122ae74eb6daa0d9022cda5, type: 3}
+  yarnProject: {fileID: 7545569452688597077, guid: f5012d385c3c4db4e96c6a855ddd5581, type: 3}
   variableStorage: {fileID: 0}
   lineProvider: {fileID: 0}
   saliencyStrategy: 0
@@ -761,11 +762,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1156500986 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6597059114244676303, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
-  m_PrefabInstance: {fileID: 4987710117106559010}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1226914028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2575,6 +2571,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1176433916383449222, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176433916383449222, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176433916383449222, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1661051328324142234, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2655,10 +2663,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3687053646652735434, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5196710801060315285, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
       propertyPath: runner
       value: 
       objectReference: {fileID: 1103033462}
+    - target: {fileID: 5824592963732415689, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
+      propertyPath: eventHandlers.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6116824061805838245, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
       propertyPath: m_Name
       value: AilenUI
@@ -3643,7 +3659,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202d2d5c9823e5443ae4694f6741f848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactButton: {fileID: 51452601}
+  image: {fileID: 51452601}
+  dialogueRunner: {fileID: 1103033462}
+  startNode: Test
 --- !u!1 &8202250746520204543
 GameObject:
   m_ObjectHideFlags: 0
@@ -3911,13 +3929,13 @@ MonoBehaviour:
     m_ActionName: Inspector/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 962554207}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 8759577008611964410}
+        m_TargetAssemblyTypeName: AlienController, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
