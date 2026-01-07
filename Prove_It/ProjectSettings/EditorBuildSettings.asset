@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/LoobyScene.unity
+    guid: 9ac707382129c0140ade4be8ac9f2448
+  - enabled: 1
+    path: Assets/Scenes/InspectScene.unity
+    guid: 24de2f760d46af14799088d56845c8c8
   m_configObjects: {}
