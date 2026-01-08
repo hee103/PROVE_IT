@@ -321,6 +321,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1311032696}
   m_SourcePrefab: {fileID: 100100000, guid: e8afba19cacb94365a59c5066d8db83a, type: 3}
+--- !u!114 &129022932 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2951314630099104731, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
+  m_PrefabInstance: {fileID: 4987710117106559010}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &418390397
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,29 +585,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!1 &962554207 stripped
+--- !u!1 &853989430 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4473578219698588945, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
+  m_CorrespondingSourceObject: {fileID: 359225664251230687, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
   m_PrefabInstance: {fileID: 4987710117106559010}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &962554209
+--- !u!114 &853989434
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 962554207}
+  m_GameObject: {fileID: 853989430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1445ddce577ef6e46bcfbbc51980f62b, type: 3}
+  m_Script: {fileID: 11500000, guid: cd80479a771496b4d8dfb431e3cd7cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 418390399}
-  interactMask:
-    serializedVersion: 2
-    m_Bits: 8
-  range: 3
-  ui: {fileID: 8163582919170873761}
+  gauge: {fileID: 129022932}
+  fillDuration: 30
   alienController: {fileID: 8759577008611964410}
 --- !u!1 &980644563
 GameObject:
@@ -2571,18 +2578,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1176433916383449222, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
-      propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1176433916383449222, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1176433916383449222, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
-      propertyPath: m_BlocksRaycasts
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 1090690211126316938, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
+      propertyPath: ui
+      value: 
+      objectReference: {fileID: 8163582919170873761}
+    - target: {fileID: 1090690211126316938, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 418390399}
+    - target: {fileID: 1090690211126316938, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
+      propertyPath: alienController
+      value: 
+      objectReference: {fileID: 8759577008611964410}
     - target: {fileID: 1661051328324142234, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2663,33 +2670,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3687053646652735434, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 2951314630099104731, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
+      propertyPath: m_FillAmount
+      value: 0.637
       objectReference: {fileID: 0}
     - target: {fileID: 5196710801060315285, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
       propertyPath: runner
       value: 
       objectReference: {fileID: 1103033462}
-    - target: {fileID: 5824592963732415689, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
-      propertyPath: eventHandlers.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6116824061805838245, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
       propertyPath: m_Name
       value: AilenUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 6597059114244676303, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4473578219698588945, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 359225664251230687, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 962554209}
+      addedObject: {fileID: 853989434}
   m_SourcePrefab: {fileID: 100100000, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
 --- !u!1 &5036020680006002287
 GameObject:

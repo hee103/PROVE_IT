@@ -8,6 +8,7 @@ public class AlienController : MonoBehaviour
 
     private Rigidbody rigid;
     private Animator animator;
+    private Transform trans;
     [SerializeField] private float moveSpeed = 3f;
 
     private Vector2 input;
@@ -16,6 +17,7 @@ public class AlienController : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        trans = GetComponent<Transform>();
     }
 
     private void FixedUpdate()
@@ -37,4 +39,12 @@ public class AlienController : MonoBehaviour
         InteractPressed?.Invoke();
     }
 
+    public void Penalty()
+    {
+
+        Vector3 scale = trans.localScale;
+        scale.y += 0.2f;
+        scale.x += 0.2f;
+        trans.localScale = scale;
+    }
 }
