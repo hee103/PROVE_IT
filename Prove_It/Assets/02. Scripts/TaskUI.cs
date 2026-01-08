@@ -29,4 +29,11 @@ public class TaskUI : MonoBehaviour
             alienController.Penalty();
         }
     }
+    public void ReduceGauge()
+    {
+        gauge.fillAmount = Mathf.Clamp01(gauge.fillAmount - 15f);
+
+        timer = gauge.fillAmount * fillDuration;
+    }
+    
 }

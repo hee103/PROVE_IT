@@ -2678,6 +2678,14 @@ PrefabInstance:
       propertyPath: runner
       value: 
       objectReference: {fileID: 1103033462}
+    - target: {fileID: 5196710801060315285, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
+      propertyPath: hurryUpLineKeyCode
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196710801060315285, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
+      propertyPath: hurryUpOptionsKeyCode
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 6116824061805838245, guid: 05398c532d5bc3445bc861ec0b5393d5, type: 3}
       propertyPath: m_Name
       value: AilenUI
@@ -3950,6 +3958,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 5c725570-d856-449a-9be3-29d5cd9cf949
     m_ActionName: Conversation/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8759577008611964410}
+        m_TargetAssemblyTypeName: AlienController, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9fdadef2-562f-442a-99bc-e344b89fe1a2
+    m_ActionName: Inspector/Jump[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Inspector
@@ -3968,6 +3992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  taskUI: {fileID: 853989434}
 --- !u!54 &8759577008611964411
 Rigidbody:
   m_ObjectHideFlags: 0

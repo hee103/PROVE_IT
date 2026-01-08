@@ -10,6 +10,7 @@ public class AlienController : MonoBehaviour
     private Animator animator;
     private Transform trans;
     [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private TaskUI taskUI;
 
     private Vector2 input;
 
@@ -37,6 +38,18 @@ public class AlienController : MonoBehaviour
         if (!ctx.performed) return;
         Debug.Log("Interact pressed");
         InteractPressed?.Invoke();
+    }
+
+    public void OnJump(InputAction.CallbackContext ctx)
+    {
+        if (!ctx.performed) return;
+
+        // 점프 (y속도만 올림)
+        var v = rigid.velocity;
+        v.y = 6f;               // 점프력
+        rigid.velocity = v;
+
+        taskUI.ReduceGauge();
     }
 
     public void Penalty()
