@@ -9,6 +9,9 @@ public class AlienController : MonoBehaviour
     private Rigidbody rigid;
     private Animator animator;
     private Transform trans;
+    private Vector3 defaultScale;
+    private Vector3 penaltyScale;
+
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private TaskUI taskUI;
 
@@ -19,6 +22,8 @@ public class AlienController : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         trans = GetComponent<Transform>();
+        defaultScale = trans.localScale;
+        penaltyScale = defaultScale + new Vector3(0.2f, 0.2f, 0f);
     }
 
     private void FixedUpdate()
@@ -54,10 +59,11 @@ public class AlienController : MonoBehaviour
 
     public void Penalty()
     {
+        trans.localScale = penaltyScale;
+    }
 
-        Vector3 scale = trans.localScale;
-        scale.y += 0.2f;
-        scale.x += 0.2f;
-        trans.localScale = scale;
+    public void X()
+    {
+        trans.localScale = defaultScale;
     }
 }

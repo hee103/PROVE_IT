@@ -32,8 +32,14 @@ public class TaskUI : MonoBehaviour
     public void ReduceGauge()
     {
         gauge.fillAmount = Mathf.Clamp01(gauge.fillAmount - 15f);
-
         timer = gauge.fillAmount * fillDuration;
+
+        if (penaltyApplied && gauge.fillAmount < 1f)
+        {
+            penaltyApplied = false;
+            alienController.X();
+        }
+        
     }
     
 }
