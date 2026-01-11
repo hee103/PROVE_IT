@@ -14,6 +14,7 @@ public class AlienController : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private TaskUI taskUI;
+    [SerializeField] private InteractUI interactUI;
 
     private Vector2 input;
 
@@ -48,7 +49,7 @@ public class AlienController : MonoBehaviour
     public void OnJump(InputAction.CallbackContext ctx)
     {
         if (!ctx.performed) return;
-
+        if (interactUI.isConversation) return;
         // 점프 (y속도만 올림)
         var v = rigid.velocity;
         v.y = 6f;               // 점프력

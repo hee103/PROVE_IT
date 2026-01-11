@@ -3700,6 +3700,7 @@ MonoBehaviour:
   image: {fileID: 51452601}
   dialogueRunner: {fileID: 1103033462}
   startNode: Test
+  isConversation: 0
 --- !u!1 &8202250746520204543
 GameObject:
   m_ObjectHideFlags: 0
@@ -4025,6 +4026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   taskUI: {fileID: 853989434}
+  interactUI: {fileID: 8163582919170873761}
 --- !u!54 &8759577008611964411
 Rigidbody:
   m_ObjectHideFlags: 0

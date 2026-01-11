@@ -8,6 +8,7 @@ public class InteractUI : MonoBehaviour
     [SerializeField] private GameObject image;
     [SerializeField] private DialogueRunner dialogueRunner;
     [SerializeField] private string startNode;
+    [SerializeField] public bool isConversation;
 
     private void Awake()
     {
@@ -16,11 +17,13 @@ public class InteractUI : MonoBehaviour
         dialogueRunner.onDialogueStart.AddListener(() =>
         {
             Debug.Log("onDialogueStart fired (대화 시작됨)");
+            isConversation = true;
         });
 
         dialogueRunner.onDialogueComplete.AddListener(() =>
         {
             Debug.Log("onDialogueComplete fired (대화 끝남)");
+            isConversation = false;
         });
     }
     public void Show()
