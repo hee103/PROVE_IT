@@ -1856,27 +1856,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &2610883376582964534
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8759577008611964406}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 8355a1aa3734d419a9ce590e7d0c673a, type: 3}
-  m_Controller: {fileID: 9100000, guid: 3e8515639c7d73c4ca468c8c853cfea5, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!33 &2622316030188167934
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3877,11 +3856,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8276371801178566476}
-  - component: {fileID: 2610883376582964534}
   - component: {fileID: 8759577008611964407}
   - component: {fileID: 8759577008611964409}
   - component: {fileID: 8759577008611964410}
   - component: {fileID: 8759577008611964411}
+  - component: {fileID: 8759577008611964412}
   m_Layer: 0
   m_Name: Astronaut.003
   m_TagString: Untagged
@@ -4054,6 +4033,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!95 &8759577008611964412
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8759577008611964406}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 8355a1aa3734d419a9ce590e7d0c673a, type: 3}
+  m_Controller: {fileID: 9100000, guid: 6e53c8614000fa647bd3bc6f609fed7c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8916942421974553533
 GameObject:
   m_ObjectHideFlags: 0

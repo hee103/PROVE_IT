@@ -21,7 +21,7 @@ public class AlienController : MonoBehaviour
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         trans = GetComponent<Transform>();
         defaultScale = trans.localScale;
         penaltyScale = defaultScale + new Vector3(0.2f, 0.2f, 0f);
@@ -50,9 +50,9 @@ public class AlienController : MonoBehaviour
     {
         if (!ctx.performed) return;
         if (interactUI.isConversation) return;
-        // 점프 (y속도만 올림)
+ 
         var v = rigid.velocity;
-        v.y = 6f;               // 점프력
+        v.y = 2f;              
         rigid.velocity = v;
 
         taskUI.ReduceGauge();
