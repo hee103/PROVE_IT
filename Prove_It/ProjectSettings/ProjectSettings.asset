@@ -824,7 +824,13 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
     UNet: 1
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -844,11 +850,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: d6e79841-56b7-4e4c-bad1-7631f0bee2ff
+  cloudProjectId: e30179c6-bea3-49dd-bf49-502bf65ea462
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Prove_It
-  organizationId: gmlgml3213
+  organizationId: sso_h
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
