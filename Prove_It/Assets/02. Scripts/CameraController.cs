@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class BaseCameraController : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
     [Header("Look")]
     private Vector2 lookInput;
@@ -37,7 +37,7 @@ public class BaseCameraController : MonoBehaviour
         curCamX = Mathf.Clamp(curCamX, xMin, xMax);
 
         cameraPivot.localEulerAngles = new Vector3(-curCamX, 0f, 0f);
-        transform.eulerAngles += new Vector3(0, lookInput.x * sensitivity, 0);
+        character.Rotate(0f, lookInput.x * sensitivity, 0f);
 
     }
 }
