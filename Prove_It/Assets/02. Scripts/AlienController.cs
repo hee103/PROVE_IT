@@ -21,10 +21,10 @@ public class AlienController : MonoBehaviour
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
         trans = GetComponent<Transform>();
         defaultScale = trans.localScale;
-        penaltyScale = defaultScale + new Vector3(0.2f, 0.2f, 0f);
+        penaltyScale = defaultScale + new Vector3(0.2f, 0.2f, 0.2f);
     }
 
     private void FixedUpdate()
