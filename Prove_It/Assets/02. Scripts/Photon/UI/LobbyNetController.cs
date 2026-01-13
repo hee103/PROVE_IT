@@ -50,6 +50,10 @@ public class LobbyNetController : MonoBehaviour, INetworkRunnerCallbacks
         runner = Instantiate(runnerPrefab);
         runner.name = "NetworkRunner";
         runner.ProvideInput = true;
+        DontDestroyOnLoad(runner.gameObject);
+
+        if(runner.GetComponent<SessionState>() == null)
+            runner.gameObject.AddComponent<SessionState>();
 
         sceneManager = runner.GetComponent<NetworkSceneManagerDefault>();
         if (sceneManager == null)
@@ -151,8 +155,23 @@ public class LobbyNetController : MonoBehaviour, INetworkRunnerCallbacks
 
         //역할 확정
         RoleAssigner.AssignRoles_Server(_spawned);
+        foreach (var kv in _spawned)
+        {
+            var np = kv.Value.GetComponent<NetworkPlayer>();
+            Debug.Log($"[AfterAssign] {kv.Key} role={np.Role} pref={np.Preference}");
+        }
         _rolesAssigned = true;
 
+        var state = runner.GetComponent<SessionState>();
+        state.AssignedRoles.Clear();
+        foreach (var kv in _spawned)
+        {
+            var playerRef = kv.Key;
+            var np = kv.Value.GetComponent<NetworkPlayer>();
+            state.AssignedRoles[playerRef] = np.Role;
+
+            Debug.Log($"[RoleSaved] {playerRef} role={np.Role}");
+        }
         SetStatus("역할 확정. 게임 씬 로딩...");
 
         if (runner.IsSceneAuthority)
@@ -181,6 +200,7 @@ public class LobbyNetController : MonoBehaviour, INetworkRunnerCallbacks
         TrySubmitMyProfile();
 
         TryAssignRolesAndStartGame();
+  
         SetStatus(runner.IsServer ? "플레이어 참가(Host)" : "플레이어 참가(Client)");
     }
 
@@ -225,11 +245,9 @@ public class LobbyNetController : MonoBehaviour, INetworkRunnerCallbacks
 
     void INetworkRunnerCallbacks.OnDisconnectedFromServer(NetworkRunner runner, NetDisconnectReason reason)
     {
-        throw new System.NotImplementedException();
     }
 
     void INetworkRunnerCallbacks.OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input)
     {
-        throw new System.NotImplementedException();
     }
 }

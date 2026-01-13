@@ -5,68 +5,51 @@ using UnityEngine.InputSystem;
 public class RoleBasedActivator : NetworkBehaviour
 {
     [Header("Insepctor Only")]
-    [SerializeField] private Camera inspectorCamera;
-    [SerializeField] private PlayerInput inspectorInput;
-    [SerializeField] private GameObject inspectorUI;
+    [SerializeField] private GameObject inspectorRig;
 
     [Header("Alien Only")]
-    [SerializeField] private Camera alienCamera;
-    [SerializeField] private PlayerInput alienInput;
-    [SerializeField] private GameObject alienUI;
+    [SerializeField] private GameObject alienRig;
 
     private AssignedRole _applied = AssignedRole.None;
-    private NetworkPlayer _player;
+    private PlayerRole _role;
 
+    private void Awake()
+    {
+        Debug.Log($"[RBA] Awakeon {gameObject.name}");
+    }
     public override void Spawned()
     {
-        _player = GetComponent<NetworkPlayer>();
-        SetAll(false);
+        Debug.Log($"[RBA] Spawned NO={(GetComponent<NetworkObject>() != null)} InputAuth={Object.HasInputAuthority} StateAuth={Object.HasStateAuthority}");
+        _role = GetComponent<PlayerRole>();
+
+        if(inspectorRig) inspectorRig.SetActive(false);
+        if(alienRig) alienRig.SetActive(false);
 
         if (!Object.HasInputAuthority) return;
 
-        ApplyIfReady();
+        TryApply();
     }
 
     public override void FixedUpdateNetwork()
     {
-        if(!Object.HasInputAuthority) return;
-        ApplyIfReady();
+        if (!Object.HasInputAuthority) return;
+
+        TryApply();
     }
 
-    private void ApplyIfReady()
+    private void TryApply()
     {
-        if (_player == null) return;
-        var role = _player.Role;
-        if (role == AssignedRole.None) return;
+        if (_role == null) return;
+
+        var role = _role.Role;
+        if(role == AssignedRole.None) return;
         if (_applied == role) return;
 
-        SetAll(false);
-
-        if(role == AssignedRole.Inspector)
-        {
-            if (inspectorCamera) inspectorCamera.enabled = true;
-            if (inspectorInput) inspectorInput.enabled = true;
-            if (inspectorUI) inspectorUI.SetActive(true);
-        }
-        else if(role == AssignedRole.Alien)
-        {
-            if (alienCamera) alienCamera.enabled = true;
-            if (alienInput) alienInput.enabled = true;
-            if (alienUI) alienUI.SetActive(true);
-        }
+        if (inspectorRig) inspectorRig.SetActive(role == AssignedRole.Inspector);
+        if (alienRig) alienRig.SetActive(role == AssignedRole.Alien);
 
         _applied = role;
-    }
 
-    private void SetAll(bool on)
-    {
-        if (inspectorCamera) inspectorCamera.enabled = on;
-        if (alienCamera) alienCamera.enabled = on;
-
-        if(inspectorInput) inspectorInput.enabled = on;
-        if(alienInput) alienInput.enabled = on;
-
-        if(inspectorUI) inspectorUI.SetActive(on);
-        if (alienUI) alienUI.SetActive(on);
+        Debug.Log($"[RolebaseActivator] Applied role = {role} on {Object.InputAuthority}");
     }
 }

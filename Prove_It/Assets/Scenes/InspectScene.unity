@@ -354,7 +354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &287434491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,6 +422,53 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 833708389}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &540698005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 540698008}
+  - component: {fileID: 540698007}
+  m_Layer: 0
+  m_Name: GameNetworkSetup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &540698007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540698005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84e6a005e904a134aac813b84545af52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSceneBuildIndex: 1
+  playerPrefab:
+    RawGuidValue: 7a6c37d25fed75c46a298934a4b20bc3
+--- !u!4 &540698008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540698005}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.993205, y: 46.552925, z: 0.29642752}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &722239166
@@ -663,7 +710,7 @@ Transform:
   m_GameObject: {fileID: 947346815}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.768, z: 0}
+  m_LocalPosition: {x: 0, y: 1.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1194,7 +1241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1820046736
 Transform:
   m_ObjectHideFlags: 0
@@ -1306,6 +1353,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 5c725570-d856-449a-9be3-29d5cd9cf949
     m_ActionName: Conversation/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9fdadef2-562f-442a-99bc-e344b89fe1a2
+    m_ActionName: Inspector/Jump[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Inspector
   m_DefaultActionMap: Inspector
@@ -1328,6 +1379,7 @@ MonoBehaviour:
   xMin: -75
   xMax: 75
   cursurLockState: 0
+  character: {fileID: 0}
 --- !u!54 &1820046739
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1723,3 +1775,4 @@ SceneRoots:
   - {fileID: 1853191349}
   - {fileID: 1743743370}
   - {fileID: 1727307946}
+  - {fileID: 540698008}
