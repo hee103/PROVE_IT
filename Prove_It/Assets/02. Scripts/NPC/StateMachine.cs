@@ -3,26 +3,28 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-interface IState
+public interface IState
 {
     void Enter();
-    void Update();
+    void Update(float dt);
     void Exit();
 }
 
-public class StateMachine : MonoBehaviour
+public class StateMachine
 {
     private IState current;
 
-    // Start is called before the first frame update
-    void Start()
+    public void ChangeState(IState next)
     {
-        
+        if (next == null) return;
+
+        current?.Exit();
+        current = next;
+        current.Enter();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update(float dt)
     {
-        
+        current?.Update(dt);
     }
 }
