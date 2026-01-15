@@ -2434,6 +2434,7 @@ GameObject:
   - component: {fileID: 8163582919170873759}
   - component: {fileID: 8163582919170873758}
   - component: {fileID: 8163582919170873761}
+  - component: {fileID: 8163582919170873762}
   m_Layer: 3
   m_Name: Astronaut.002
   m_TagString: Untagged
@@ -4734,6 +4735,28 @@ MonoBehaviour:
   dialogueRunner: {fileID: 1103033462}
   startNode: Test
   isConversation: 0
+--- !u!114 &8163582919170873762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3233904565639043421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b28ae5c5edde34fa2be281925a7352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wanderRadius: 6
+  wanderStopDistance: 0.4
+  talkTargetLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  talkDetectRadius: 2.2
+  talkChancePerSecond: 0.15
+  talkCooldown: 6
+  faceTargetTurnSpeed: 720
+  agent: {fileID: 8163582919170873758}
 --- !u!1 &8184951757427732780
 GameObject:
   m_ObjectHideFlags: 0
