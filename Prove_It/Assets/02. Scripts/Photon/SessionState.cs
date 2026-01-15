@@ -6,4 +6,5 @@ using UnityEngine;
 public class SessionState : MonoBehaviour
 {
     public Dictionary<PlayerRef, AssignedRole> AssignedRoles = new();
+    public Dictionary<PlayerRef, string> Nicknames = new();
 }

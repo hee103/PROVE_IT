@@ -5,13 +5,12 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("설정")]
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private Rigidbody rb;
 
-    private Rigidbody rb;
     private Vector2 moveInput;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
 
         //카메라 위치 보간
         rb.interpolation = RigidbodyInterpolation.Interpolate;

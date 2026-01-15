@@ -6,14 +6,14 @@ public class BaseCameraController : MonoBehaviour
     [Header("Look")]
     private Vector2 lookInput;
     [SerializeField] private Transform cameraPivot;
+    [SerializeField] private Rigidbody rb;
     [SerializeField] private float sensitivity;
     [SerializeField] private float xMin = -75;
     [SerializeField] private float xMax = 75;
     [SerializeField] private bool cursurLockState;
-    [SerializeField] private Transform character;
 
     private float curCamX;
-    private float pitch;
+    private float yaw;
 
     private void Awake()
     {
@@ -37,7 +37,10 @@ public class BaseCameraController : MonoBehaviour
         curCamX = Mathf.Clamp(curCamX, xMin, xMax);
 
         cameraPivot.localEulerAngles = new Vector3(-curCamX, 0f, 0f);
-        transform.eulerAngles += new Vector3(0, lookInput.x * sensitivity, 0);
 
+        yaw += lookInput.x * sensitivity;
+
+        if (rb != null)
+            rb.MoveRotation(Quaternion.Euler(0f, yaw, 0f));
     }
 }
