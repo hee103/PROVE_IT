@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPivot: {fileID: 5326621895293100035}
-  rb: {fileID: 5012490766194618945}
+  rb: {fileID: 3190704772910142366}
   sensitivity: 0.5
   xMin: -75
   xMax: 75
@@ -235,6 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fpsCamera: {fileID: 3487175350400151873}
   cctvCamera: {fileID: 293498465258267333, guid: 43a985af6a702c64eb2174c132fc37f3, type: 3}
+  gameSceneBuildIndex: 1
   fpsLookScript: {fileID: 3744124347500725993}
   showCursor: 1
 --- !u!114 &4545357246658287632
@@ -250,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  rb: {fileID: 5012490766194618945}
+  rb: {fileID: 3190704772910142366}
 --- !u!114 &104500437294775481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1072,7 +1073,6 @@ GameObject:
   - component: {fileID: 4763475705644137575}
   - component: {fileID: 1511924412367169053}
   - component: {fileID: 5379714304491247036}
-  - component: {fileID: 5012490766194618945}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -1142,33 +1142,6 @@ CapsuleCollider:
   m_Height: 2.0094361
   m_Direction: 1
   m_Center: {x: 0, y: 0.8425062, z: 0}
---- !u!54 &5012490766194618945
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5282884291925075677}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
 --- !u!1 &6000484662980092580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1620,6 +1593,7 @@ GameObject:
   - component: {fileID: 4654918746822092670}
   - component: {fileID: -6801039743251118497}
   - component: {fileID: 3275843344335333308}
+  - component: {fileID: 3190704772910142366}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Untagged
@@ -1727,6 +1701,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Role: 0
+--- !u!54 &3190704772910142366
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8819069552862274634}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &9137453856567231613
 GameObject:
   m_ObjectHideFlags: 0
