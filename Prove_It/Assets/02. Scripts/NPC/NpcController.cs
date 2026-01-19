@@ -19,8 +19,8 @@ public class NpcController : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
 
 
-    public event Action<Transform> OnTalkStart;
-    public event Action OnTalkEnd;
+    //public event Action<Transform> OnTalkStart;
+    //public event Action OnTalkEnd;
 
     private StateMachine fsm;
     private float nextTalkAllowedTime;
