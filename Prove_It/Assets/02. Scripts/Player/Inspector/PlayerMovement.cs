@@ -1,7 +1,13 @@
-﻿using UnityEngine.InputSystem;
+﻿using Fusion;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public struct PlayerInputData : INetworkInput
+{
+    public Vector3 Move;
+}
+
+public class PlayerMovement : NetworkBehaviour
 {
     [Header("설정")]
     [SerializeField] private float moveSpeed = 5f;
@@ -9,32 +15,30 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 moveInput;
 
-    private void Awake()
+    public override void Spawned()
     {
+        if (rb == null) rb = GetComponent<Rigidbody>();
 
-        //카메라 위치 보간
-        rb.interpolation = RigidbodyInterpolation.Interpolate;
+        if (!Object.HasStateAuthority && rb != null)
+            rb.isKinematic = true;
+        else if (rb != null)
+            rb.isKinematic = false;
     }
 
-    public void OnMove(InputAction.CallbackContext ctx)
+    public override void FixedUpdateNetwork()
     {
-        moveInput = ctx.ReadValue<Vector2>();
-    }
+        if (!Object.HasStateAuthority) return;
+        if (rb == null) return;
 
-    private void FixedUpdate()
-    {
-        Move();
-    }
+        if (GetInput<PlayerInputData>(out var input))
+        {
+            var f = rb.transform.forward;
+            var r = rb.transform.right;
 
-    private void Move()
-    {
-        Vector3 forward = transform.forward;
-        Vector3 right = transform.right;
-
-        Vector3 moveDir = (forward * moveInput.y + right * moveInput.x);
-        Vector3 velocity = moveDir * moveSpeed;
-        velocity.y = rb.velocity.y;
-
-        rb.velocity = velocity;
+            var dir = f * input.Move.y + r * input.Move.x;
+            var vel = dir * moveSpeed;
+            vel.y = rb.velocity.y;
+            rb.velocity = vel;
+        }
     }
 }

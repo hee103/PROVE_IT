@@ -61,6 +61,10 @@ public class LobbyNetController : MonoBehaviour, INetworkRunnerCallbacks
 
         runner.AddCallbacks(this);
 
+        var inputBridge = runner.GetComponent<FusionInputBridge>();
+        if (inputBridge != null) runner.AddCallbacks(inputBridge);
+        else Debug.LogError("[LobbyNetController] FusionInputBridge x");
+
         var result = await runner.StartGame(new StartGameArgs
         {
             GameMode = GameMode.AutoHostOrClient,
