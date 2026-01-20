@@ -52,34 +52,34 @@ public class NpcController : MonoBehaviour
         nextTalkAllowedTime = Time.time + talkCooldown;
     }
 
-    internal bool TryPickTalkTarget(out Transform target)
-    {
-        target = null;
+    //internal bool TryPickTalkTarget(out Transform target)
+    //{
+    //    target = null;
 
-        var hits = Physics.OverlapSphere(transform.position, talkDetectRadius, talkTargetLayers, QueryTriggerInteraction.Ignore);
-        if (hits == null || hits.Length == 0) return false;
+    //    var hits = Physics.OverlapSphere(transform.position, talkDetectRadius, talkTargetLayers, QueryTriggerInteraction.Ignore);
+    //    if (hits == null || hits.Length == 0) return false;
 
-        float best = float.MaxValue;
-        Transform bestT = null;
+    //    float best = float.MaxValue;
+    //    Transform bestT = null;
 
-        for (int i = 0; i < hits.Length; i++)
-        {
-            var t = hits[i].transform;
-            if (!t || t == transform) continue;
+    //    for (int i = 0; i < hits.Length; i++)
+    //    {
+    //        var t = hits[i].transform;
+    //        if (!t || t == transform) continue;
 
-            float d = (t.position - transform.position).sqrMagnitude;
-            if (d < best)
-            {
-                best = d;
-                bestT = t;
-            }
-        }
+    //        float d = (t.position - transform.position).sqrMagnitude;
+    //        if (d < best)
+    //        {
+    //            best = d;
+    //            bestT = t;
+    //        }
+    //    }
 
-        if (!bestT) return false;
+    //    if (!bestT) return false;
 
-        target = bestT;
-        return true;
-    }
+    //    target = bestT;
+    //    return true;
+    //}
 
     internal bool RollTalkChance(float dt)
     {

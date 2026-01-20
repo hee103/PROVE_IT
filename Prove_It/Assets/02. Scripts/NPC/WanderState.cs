@@ -16,14 +16,14 @@ public class WanderState : IState
     }
     public void Update(float dt)
     {
-        if (npc.CanTryTalk() && npc.RollTalkChance(dt) && npc.TryPickTalkTarget(out var target))
-        {
-            npc.ToTalk(target);
-            return;
-        }
+        //if (npc.CanTryTalk() && npc.RollTalkChance(dt) && npc.TryPickTalkTarget(out var target))
+        //{
+        //    npc.ToTalk(target);
+        //    return;
+        //}
 
-        if (npc.IsArrived())
-            npc.ToIdle();
+        //if (npc.IsArrived())
+        //    npc.ToIdle();
     }
 
     public void Exit()

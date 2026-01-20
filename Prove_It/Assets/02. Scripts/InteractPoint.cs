@@ -24,18 +24,25 @@ public class InteractPoint : MonoBehaviour
     private void Update()
     {
         Ray ray = cam.ViewportPointToRay(Vector3.one * 0.5f);
-        if (Physics.Raycast(ray, out RaycastHit hit, range, interactMask))
+
+        // 레이 시각화 (맞으면 초록, 안 맞으면 빨강)
+        if (Physics.Raycast(ray, out RaycastHit hit, range, interactMask, QueryTriggerInteraction.Collide))
         {
-            //var ui = hit.collider.GetComponentInParent<InteractUI>();
-            if (ui != currentUI)
+            Debug.DrawRay(ray.origin, ray.direction * hit.distance, Color.green);
+
+            var hitUI = hit.collider.GetComponentInParent<InteractUI>();
+            Debug.Log(hitUI);
+
+            if (hitUI != currentUI)
             {
                 ClearCurrent();
-                currentUI = ui;
+                currentUI = hitUI;
                 currentUI?.Show();
             }
         }
         else
         {
+            Debug.DrawRay(ray.origin, ray.direction * range, Color.red);
             ClearCurrent();
         }
     }

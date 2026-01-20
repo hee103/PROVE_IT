@@ -16,11 +16,11 @@ public class IdleState : IState
     }
     public void Update(float dt)
     {
-        if (npc.CanTryTalk() && npc.RollTalkChance(dt) && npc.TryPickTalkTarget(out var target))
-        {
-            npc.ToTalk(target);
-            return;
-        }
+        //if (npc.CanTryTalk() && npc.RollTalkChance(dt) && npc.TryPickTalkTarget(out var target))
+        //{
+        //    npc.ToTalk(target);
+        //    return;
+        //}
 
         t += dt;
         if (t >= duration)
