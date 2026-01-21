@@ -25,13 +25,20 @@ public class InteractPoint : MonoBehaviour
     {
         Ray ray = cam.ViewportPointToRay(Vector3.one * 0.5f);
 
-        // 레이 시각화 (맞으면 초록, 안 맞으면 빨강)
         if (Physics.Raycast(ray, out RaycastHit hit, range, interactMask, QueryTriggerInteraction.Collide))
         {
             Debug.DrawRay(ray.origin, ray.direction * hit.distance, Color.green);
 
+            // 1. 무엇에 맞았는지 이름 확인
+            Debug.Log($"Hit Object: {hit.collider.name}");
+
             var hitUI = hit.collider.GetComponentInParent<InteractUI>();
-            Debug.Log(hitUI);
+
+            // 2. UI 컴포넌트를 찾았는지 확인
+            if (hitUI == null)
+            {
+                Debug.LogWarning("Raycast hit something, but no InteractUI found in parents!");
+            }
 
             if (hitUI != currentUI)
             {
@@ -39,11 +46,6 @@ public class InteractPoint : MonoBehaviour
                 currentUI = hitUI;
                 currentUI?.Show();
             }
-        }
-        else
-        {
-            Debug.DrawRay(ray.origin, ray.direction * range, Color.red);
-            ClearCurrent();
         }
     }
 
