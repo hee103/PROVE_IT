@@ -6,7 +6,6 @@ public class InteractPoint : MonoBehaviour
     [SerializeField] private LayerMask interactMask;
     [SerializeField] private float range = 3f;
     [SerializeField] private InteractUI ui;
-
     [SerializeField] private AlienController alienController;
 
     private InteractUI currentUI;
@@ -21,33 +20,28 @@ public class InteractPoint : MonoBehaviour
         alienController.InteractPressed -= TryInteract;
     }
 
-    private void Update()
+    void Update()
     {
         Ray ray = cam.ViewportPointToRay(Vector3.one * 0.5f);
-
-        if (Physics.Raycast(ray, out RaycastHit hit, range, interactMask, QueryTriggerInteraction.Collide))
+        RaycastHit hit;
+        Debug.DrawRay(ray.origin, ray.direction, Color.red);
+        if (Physics.Raycast(ray, out hit, range, interactMask))
         {
-            Debug.DrawRay(ray.origin, ray.direction * hit.distance, Color.green);
-
-            // 1. 무엇에 맞았는지 이름 확인
-            Debug.Log($"Hit Object: {hit.collider.name}");
-
-            var hitUI = hit.collider.GetComponentInParent<InteractUI>();
-
-            // 2. UI 컴포넌트를 찾았는지 확인
-            if (hitUI == null)
-            {
-                Debug.LogWarning("Raycast hit something, but no InteractUI found in parents!");
-            }
-
-            if (hitUI != currentUI)
+            
+            InteractUI ui = hit.collider.GetComponentInParent<InteractUI>();
+            if (ui != currentUI)
             {
                 ClearCurrent();
-                currentUI = hitUI;
+                currentUI = ui;
                 currentUI?.Show();
             }
         }
+        else
+        {
+            ClearCurrent();
+        }
     }
+
 
     private void TryInteract()
     {
