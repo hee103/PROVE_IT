@@ -16,6 +16,7 @@ public class InteractUI : MonoBehaviour
 
         dialogueRunner.onDialogueStart.AddListener(() =>
         {
+
             Debug.Log("onDialogueStart fired (¥Î»≠ Ω√¿€µ )");
             isConversation = true;
         });
