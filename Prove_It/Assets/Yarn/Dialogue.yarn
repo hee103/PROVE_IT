@@ -34,3 +34,53 @@ title: End
 ---
 대화를 종료한다.
 ===
+title: Inspector_Default
+---
+Alien: (검문 중이다... 어떻게 대답하지?)
+-> "나는 행성A에서 왔어"
+    <<TellInfo "Planet" "행성A">>
+    <<EndConversation>>
+-> "나는 행성B에서 왔어"
+    <<TellInfo "Planet" "행성B">>
+    <<EndConversation>>
+===
+title: NPC_Default
+---
+NPC: 안녕. 오늘 코드는 "ALPHA"야.
+<<LearnInfo "Code" "ALPHA">>
+
+NPC: 그리고 외계인 색은 빨강이라던데?
+<<LearnInfo "Color" "빨강">>
+
+<<EndConversation>>
+===
+title: A2A_Ask
+---
+(무엇을 물어볼까?)
+-> "행성이 어디야?"
+    <<Ask "Planet">>
+    <<EndConversation>>
+-> "색이 뭐야?"
+    <<Ask "Color">>
+    <<EndConversation>>
+===
+title: A2A_Answer_Planet
+---
+(행성 질문이군. 어떻게 말하지?)
+-> "행성A"
+    <<Answer "Planet" "행성A">>
+    <<EndConversation>>
+-> "행성B"
+    <<Answer "Planet" "행성B">>
+    <<EndConversation>>
+===
+title: A2A_Answer_Color
+---
+(색을 물어보네.)
+-> "빨강"
+    <<Answer "Color" "빨강">>
+    <<EndConversation>>
+-> "파랑"
+    <<Answer "Color" "파랑">>
+    <<EndConversation>>
+===

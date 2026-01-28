@@ -9,7 +9,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Alien
+  - Interactable
   - Water
   - UI
   - 
