@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -11,6 +9,7 @@ public class WanderState : IState
     public WanderState(NpcController npc) => this.npc = npc;
     public void Enter()
     {
+        Debug.Log("wander ป๓ลย");
         npc.ResumeMove();
         npc.TrySetRandomDestination(npc.wanderRadius);
     }
@@ -28,7 +27,7 @@ public class WanderState : IState
 
     public void Exit()
     {
-       
+
     }
 
 }

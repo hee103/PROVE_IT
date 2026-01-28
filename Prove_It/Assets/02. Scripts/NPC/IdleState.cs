@@ -11,6 +11,7 @@ public class IdleState : IState
     public IdleState(NpcController npc) => this.npc = npc;
     public void Enter()
     {
+        Debug.Log("idle ป๓ลย");
         npc.StopMove();
         t = 0f;
     }
